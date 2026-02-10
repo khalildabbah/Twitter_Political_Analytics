@@ -2,6 +2,12 @@
 
 A full-stack analytics dashboard for analyzing political Twitter/X data from curated accounts. Built with **Next.js**, **React**, **TypeScript**, and **Tailwind CSS** on the frontend, with an offline **Python** data pipeline for scraping and normalizing tweet data.
 
+## Screenshots
+
+| Overview | Accounts & Viral Tweets | Topics & Cross-Party |
+|----------|-------------------------|----------------------|
+| ![Dashboard Overview](data/images/image.png) | ![Accounts and Viral Tweets](data/images/image2.png) | ![Topics and Cross-Party Comparison](data/images/image3.png) |
+
 ---
 
 ## Overview
@@ -30,9 +36,10 @@ The dashboard supports **party filtering**, **date range** selection (UI-ready),
 ### Dashboard Tabs
 
 - **Overview** – KPI cards (Total Accounts, Total Tweets, Average Likes, Average Engagement) and a bar chart of tweets per party
-- **Accounts** – Table of accounts with username, display name, party, follower count, tweet count, and average likes
+- **Accounts** – Table of accounts with username, display name, party, follower count, tweet count, and average likes; click an account to open a **modal** with that account’s tweets
 - **Viral Tweets** – Sortable table of tweets with engagement metrics and links to original posts
-- **Topics & Narratives** / **Cross-Party Comparison** – Placeholder tabs for future analysis
+- **Topics & Narratives** – Per-account view of top topics and narratives, powered by `data/topics_and_narratives.json`
+- **Cross-Party Comparison** – Side-by-side comparison of topics and narratives across selected parties, with engagement context
 
 ### Filters & UX
 
@@ -57,7 +64,10 @@ Twitter_Political_Analytics/
 │   ├── Tabs.tsx            # Tab navigation
 │   ├── PartyBarChart.tsx   # Bar chart (Recharts)
 │   ├── AccountsTable.tsx   # Accounts tab table
+│   ├── AccountTweetsModal.tsx # Modal showing an account’s tweets
 │   ├── ViralTweetsTable.tsx# Viral tweets tab table
+│   ├── TopicsNarrativesView.tsx # Topics & Narratives tab
+│   ├── CrossPartyComparison.tsx # Cross-Party Comparison tab
 │   └── ThemeToggle.tsx     # Dark/light theme switch
 ├── types/
 │   └── types.ts            # TypeScript interfaces (PartyStats, Tweet, AccountSummary, etc.)
@@ -66,6 +76,8 @@ Twitter_Political_Analytics/
 ├── data/
 │   ├── all_tweets.json     # Normalized tweet data (consumed by dashboard)
 │   ├── all_tweets.csv      # Same data in CSV form
+│   ├── topics_and_narratives.json # Per-account topics & narratives (Topics & Cross-Party tabs)
+│   ├── images/             # Screenshots for README (image.png, image2.png, image3.png)
 │   └── apify_raw_tweets.json  # Optional: raw Apify scraper output (input to process_apify_tweets.py)
 ├── backend/
 │   ├── scraping/
@@ -79,20 +91,32 @@ Twitter_Political_Analytics/
 
 ## Getting Started
 
-### Prerequisites
+### What you need to install
 
-- **Node.js** 18+ and npm (for the Next.js app)
-- **Python** 3.8+ (for the data pipeline; optional if you only use pre-generated data)
+- **Node.js** 18+ and **npm** (required to run the dashboard)
+- **Python** 3.8+ (optional; only needed if you want to run the data pipeline to generate or update tweet data)
 
-### 1. Install and run the dashboard
+### How to run the project
 
-```bash
-# From project root
-npm install
-npm run dev
-```
+1. **Clone the repo** (if you haven’t already) and open a terminal in the project root.
 
-Open [http://localhost:3000](http://localhost:3000). The dashboard reads from `data/all_tweets.json`. If that file is missing or empty, ensure you run the data pipeline (below) or add sample data.
+2. **Install dependencies** (one-time):
+
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Open **[http://localhost:3000](http://localhost:3000)** in your browser. The dashboard reads from:
+   - `data/all_tweets.json` – tweet data (Overview, Accounts, Viral Tweets)
+   - `data/topics_and_narratives.json` – topics & narratives (Topics & Narratives, Cross-Party Comparison)
+
+   If `all_tweets.json` is missing or empty, run the data pipeline below or add sample data. If `topics_and_narratives.json` is missing, the Topics and Cross-Party tabs will have no content.
 
 **Production build:**
 
@@ -140,12 +164,14 @@ For more detail (account list, field descriptions, env setup), see **README_data
 
 ## Data Architecture
 
-- **Source of truth for the UI:** `data/all_tweets.json`
-- **Shape:** Array of tweet objects with fields such as `id`, `url`, `username`, `display_name`, `group`, `label`, `text`, `created_at`, `likes`, `retweets`, `replies`, `quotes`, `virality_score`
-- **Data access:** All dashboard data is derived in `lib/mockData.ts` from this JSON:
-  - `getDashboardData()` – party-level aggregates and overall KPIs
+- **Tweet data:** `data/all_tweets.json` – array of tweet objects with fields such as `id`, `url`, `username`, `display_name`, `group`, `label`, `text`, `created_at`, `likes`, `retweets`, `replies`, `quotes`, `virality_score`
+- **Topics & narratives:** `data/topics_and_narratives.json` – object keyed by username with `top_topics` and `narratives` per account
+- **Data access:** All dashboard data is derived in `lib/mockData.ts`:
+  - `getDashboardData()` – party-level aggregates and overall KPIs (from `all_tweets.json`)
   - `getAccountSummaries()` – per-account stats
   - `getViralTweets()` – tweet list with normalized party labels and engagement
+  - `getTopicsAndNarratives()` – per-account topics and narratives (from `topics_and_narratives.json`)
+  - `getPartyComparisonData()` – topics/narratives and engagement by party (combines both data sources)
 
 Group names in the JSON (e.g. `Islamic/Independent`, `Activist`) are mapped to filter labels (e.g. `Islamic / Independent`, `Activists`) in `lib/mockData.ts`.
 

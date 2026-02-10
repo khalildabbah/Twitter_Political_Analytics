@@ -54,45 +54,45 @@ export default function TopicsNarrativesView({
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {Object.entries(groupedByParty)
         .sort()
         .map(([party, accounts]) => (
           <div
             key={party}
-            className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-800 dark:border-gray-700"
+            className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6 dark:bg-gray-800 dark:border-gray-700"
           >
-            <h2 className="text-xl font-semibold text-gray-900 mb-6 dark:text-gray-100">
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 sm:mb-6 dark:text-gray-100">
               {party}
             </h2>
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               {accounts.map((account) => (
-                <div key={account.username} className="border-b border-gray-200 last:border-0 pb-6 last:pb-0 dark:border-gray-700">
-                  <div className="mb-4">
-                    <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100">
+                <div key={account.username} className="border-b border-gray-200 last:border-0 pb-4 sm:pb-6 last:pb-0 dark:border-gray-700">
+                  <div className="mb-3 sm:mb-4">
+                    <h3 className="text-base sm:text-lg font-medium text-gray-900 dark:text-gray-100">
                       {account.display_name}
                     </h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                    <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                       @{account.username}
                     </p>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                     {/* Top Topics */}
                     <div>
-                      <h4 className="text-sm font-semibold text-gray-700 mb-3 dark:text-gray-300">
+                      <h4 className="text-xs sm:text-sm font-semibold text-gray-700 mb-2 sm:mb-3 dark:text-gray-300">
                         Top Topics
                       </h4>
-                      <ul className="space-y-2">
+                      <ul className="space-y-1.5 sm:space-y-2">
                         {account.top_topics.map((topic, index) => (
                           <li
                             key={index}
-                            className="flex items-start space-x-2 text-sm text-gray-600 dark:text-gray-400"
+                            className="flex items-start space-x-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400"
                           >
-                            <span className="text-blue-500 dark:text-blue-400 mt-1">
+                            <span className="text-blue-500 dark:text-blue-400 mt-1 flex-shrink-0">
                               •
                             </span>
-                            <span>{topic}</span>
+                            <span className="break-words">{topic}</span>
                           </li>
                         ))}
                       </ul>
@@ -100,14 +100,14 @@ export default function TopicsNarrativesView({
 
                     {/* Narratives */}
                     <div>
-                      <h4 className="text-sm font-semibold text-gray-700 mb-3 dark:text-gray-300">
+                      <h4 className="text-xs sm:text-sm font-semibold text-gray-700 mb-2 sm:mb-3 dark:text-gray-300">
                         Recurring Narratives
                       </h4>
-                      <ul className="space-y-3">
+                      <ul className="space-y-2 sm:space-y-3">
                         {account.narratives.map((narrative, index) => (
                           <li
                             key={index}
-                            className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
+                            className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
                           >
                             {narrative}
                           </li>

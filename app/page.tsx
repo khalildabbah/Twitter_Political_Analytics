@@ -105,8 +105,8 @@ export default function Dashboard() {
 
       {/* Main Content */}
       <div className="flex-1 ml-64">
-        <div className="p-8">
-          <div className="mb-4 flex items-center justify-end">
+        <div className="p-4 sm:p-6 lg:p-8">
+          <div className="mb-3 sm:mb-4 flex items-center justify-end">
             <ThemeToggle />
           </div>
           {/* Tabs */}
@@ -114,9 +114,9 @@ export default function Dashboard() {
 
           {/* Tab Content */}
           {activeTab === "Overview" && (
-            <div className="space-y-6 flex flex-col h-[calc(100vh-200px)]">
+            <div className="space-y-4 sm:space-y-6 flex flex-col h-[calc(100vh-120px)] sm:h-[calc(100vh-200px)]">
               {/* KPI Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 flex-shrink-0">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 flex-shrink-0">
                 <KpiCard title="Total Accounts" value={totalAccounts} />
                 <KpiCard title="Total Tweets" value={totalTweets} />
                 <KpiCard title="Average Likes" value={averageLikes} />

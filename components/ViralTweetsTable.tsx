@@ -36,13 +36,13 @@ export default function ViralTweetsTable({ tweets }: ViralTweetsTableProps) {
   const displayedTweets = sortedTweets.slice(0, topN);
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-800 dark:border-gray-700">
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-4">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6 dark:bg-gray-800 dark:border-gray-700">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4">
         <div>
-          <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+          <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
             Viral Tweets
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
             Explore the most engaged tweets and slice them by party and
             engagement type.
           </p>
@@ -102,62 +102,64 @@ export default function ViralTweetsTable({ tweets }: ViralTweetsTableProps) {
         </div>
       </div>
 
-      <div className="text-sm text-gray-500 mb-4 dark:text-gray-400">
+      <div className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4 dark:text-gray-400">
         Showing top {displayedTweets.length} of {sortedTweets.length.toLocaleString()} tweets.
       </div>
 
-      <div className="overflow-x-auto max-h-[60vh]">
-        <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 text-sm">
-          <thead className="bg-gray-50 dark:bg-gray-900/40">
-            <tr>
-              <th className="px-4 py-3 text-left font-medium text-gray-700 dark:text-gray-200">
-                Tweet
-              </th>
-              <th className="px-4 py-3 text-left font-medium text-gray-700 dark:text-gray-200">
-                Author
-              </th>
-              <th className="px-4 py-3 text-left font-medium text-gray-700 dark:text-gray-200">
-                Party
-              </th>
-              <th className="px-4 py-3 text-right font-medium text-gray-700 dark:text-gray-200">
-                Likes
-              </th>
-              <th className="px-4 py-3 text-right font-medium text-gray-700 dark:text-gray-200">
-                Retweets
-              </th>
-              <th className="px-4 py-3 text-right font-medium text-gray-700 dark:text-gray-200">
-                Replies
-              </th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-            {displayedTweets.map((tweet) => (
-              <tr
-                key={tweet.id}
-                className="hover:bg-gray-50 dark:hover:bg-gray-900/40"
-              >
-                <td className="px-4 py-3 text-gray-900 dark:text-gray-100 max-w-xl">
-                  <div className="line-clamp-3">{tweet.text}</div>
-                </td>
-                <td className="px-4 py-3 text-gray-700 dark:text-gray-200 whitespace-nowrap">
-                  {tweet.author}
-                </td>
-                <td className="px-4 py-3 text-gray-700 dark:text-gray-200 whitespace-nowrap">
-                  {tweet.party}
-                </td>
-                <td className="px-4 py-3 text-right text-gray-700 dark:text-gray-200">
-                  {tweet.likes.toLocaleString()}
-                </td>
-                <td className="px-4 py-3 text-right text-gray-700 dark:text-gray-200">
-                  {tweet.retweets.toLocaleString()}
-                </td>
-                <td className="px-4 py-3 text-right text-gray-700 dark:text-gray-200">
-                  {tweet.replies.toLocaleString()}
-                </td>
+      <div className="overflow-x-auto max-h-[50vh] sm:max-h-[60vh] -mx-4 sm:mx-0">
+        <div className="inline-block min-w-full align-middle px-4 sm:px-0">
+          <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 text-xs sm:text-sm">
+            <thead className="bg-gray-50 dark:bg-gray-900/40">
+              <tr>
+                <th className="px-2 sm:px-4 py-2 sm:py-3 text-left font-medium text-gray-700 dark:text-gray-200">
+                  Tweet
+                </th>
+                <th className="px-2 sm:px-4 py-2 sm:py-3 text-left font-medium text-gray-700 dark:text-gray-200">
+                  Author
+                </th>
+                <th className="px-2 sm:px-4 py-2 sm:py-3 text-left font-medium text-gray-700 dark:text-gray-200">
+                  Party
+                </th>
+                <th className="px-2 sm:px-4 py-2 sm:py-3 text-right font-medium text-gray-700 dark:text-gray-200">
+                  Likes
+                </th>
+                <th className="px-2 sm:px-4 py-2 sm:py-3 text-right font-medium text-gray-700 dark:text-gray-200">
+                  Retweets
+                </th>
+                <th className="px-2 sm:px-4 py-2 sm:py-3 text-right font-medium text-gray-700 dark:text-gray-200">
+                  Replies
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+              {displayedTweets.map((tweet) => (
+                <tr
+                  key={tweet.id}
+                  className="hover:bg-gray-50 dark:hover:bg-gray-900/40"
+                >
+                  <td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-900 dark:text-gray-100 max-w-xs sm:max-w-xl">
+                    <div className="line-clamp-3 break-words">{tweet.text}</div>
+                  </td>
+                  <td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-700 dark:text-gray-200 whitespace-nowrap">
+                    {tweet.author}
+                  </td>
+                  <td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-700 dark:text-gray-200 whitespace-nowrap">
+                    {tweet.party}
+                  </td>
+                  <td className="px-2 sm:px-4 py-2 sm:py-3 text-right text-gray-700 dark:text-gray-200">
+                    {tweet.likes.toLocaleString()}
+                  </td>
+                  <td className="px-2 sm:px-4 py-2 sm:py-3 text-right text-gray-700 dark:text-gray-200">
+                    {tweet.retweets.toLocaleString()}
+                  </td>
+                  <td className="px-2 sm:px-4 py-2 sm:py-3 text-right text-gray-700 dark:text-gray-200">
+                    {tweet.replies.toLocaleString()}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

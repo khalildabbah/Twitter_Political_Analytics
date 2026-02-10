@@ -21,20 +21,20 @@ export default function AccountTweetsModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-2 sm:p-4"
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] flex flex-col dark:bg-gray-800"
+        className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[95vh] sm:max-h-[90vh] flex flex-col dark:bg-gray-800 m-2 sm:m-0"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
-          <div>
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200 dark:border-gray-700">
+          <div className="min-w-0 flex-1 pr-2">
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-gray-100 truncate">
               {accountName}
             </h2>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
               @{username} • {tweets.length} tweets
             </p>
           </div>
@@ -60,24 +60,24 @@ export default function AccountTweetsModal({
         </div>
 
         {/* Tweets List */}
-        <div className="flex-1 overflow-y-auto p-6">
-          <div className="space-y-4">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6">
+          <div className="space-y-3 sm:space-y-4">
             {tweets.length === 0 ? (
-              <p className="text-gray-500 text-center py-8 dark:text-gray-400">
+              <p className="text-gray-500 text-center py-6 sm:py-8 text-sm dark:text-gray-400">
                 No tweets found for this account.
               </p>
             ) : (
               tweets.map((tweet) => (
                 <div
                   key={tweet.id}
-                  className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-900/40 transition-colors"
+                  className="border border-gray-200 rounded-lg p-3 sm:p-4 hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-900/40 transition-colors"
                 >
-                  <p className="text-gray-900 mb-3 dark:text-gray-100 whitespace-pre-wrap">
+                  <p className="text-sm sm:text-base text-gray-900 mb-2 sm:mb-3 dark:text-gray-100 whitespace-pre-wrap break-words">
                     {tweet.text}
                   </p>
-                  <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                     <span>{new Date(tweet.createdAt).toLocaleDateString()}</span>
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center space-x-3 sm:space-x-4">
                       <span className="flex items-center space-x-1">
                         <svg
                           className="w-4 h-4"

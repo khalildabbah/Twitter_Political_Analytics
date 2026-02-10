@@ -42,17 +42,17 @@ export default function CrossPartyComparison({
   }
 
   return (
-    <div className="space-y-6">
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-800 dark:border-gray-700">
-        <h2 className="text-lg font-semibold text-gray-900 mb-2 dark:text-gray-100">
+    <div className="space-y-4 sm:space-y-6">
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6 dark:bg-gray-800 dark:border-gray-700">
+        <h2 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 dark:text-gray-100">
           Cross-Party Comparison
         </h2>
-        <p className="text-sm text-gray-500 dark:text-gray-400">
+        <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
           Compare leading topics, narratives, and viral tweets across parties
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
         {filteredData.map((partyData) => {
           const borderColor = PARTY_COLORS[partyData.party] || "border-gray-500 bg-gray-50";
           const textColor = PARTY_TEXT_COLORS[partyData.party] || "text-gray-700";
@@ -60,29 +60,29 @@ export default function CrossPartyComparison({
           return (
             <div
               key={partyData.party}
-              className={`bg-white rounded-lg shadow-sm border-2 ${borderColor} p-6 dark:bg-gray-800 flex flex-col`}
+              className={`bg-white rounded-lg shadow-sm border-2 ${borderColor} p-4 sm:p-6 dark:bg-gray-800 flex flex-col`}
             >
               {/* Party Header */}
-              <h3 className={`text-xl font-bold mb-6 ${textColor}`}>
+              <h3 className={`text-lg sm:text-xl font-bold mb-4 sm:mb-6 ${textColor}`}>
                 {partyData.party}
               </h3>
 
-              <div className="flex-1 space-y-6">
+              <div className="flex-1 space-y-4 sm:space-y-6">
                 {/* Leading Topics */}
                 <div>
-                  <h4 className="text-sm font-semibold text-gray-700 mb-3 dark:text-gray-300">
+                  <h4 className="text-xs sm:text-sm font-semibold text-gray-700 mb-2 sm:mb-3 dark:text-gray-300">
                     Leading Topics
                   </h4>
-                  <ul className="space-y-2">
+                  <ul className="space-y-1.5 sm:space-y-2">
                     {partyData.leadingTopics.map((topic, index) => (
                       <li
                         key={index}
-                        className="text-sm text-gray-600 dark:text-gray-400 flex items-start"
+                        className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 flex items-start"
                       >
-                        <span className={`mr-2 ${textColor} font-medium`}>
+                        <span className={`mr-1.5 sm:mr-2 ${textColor} font-medium flex-shrink-0`}>
                           {index + 1}.
                         </span>
-                        <span>{topic}</span>
+                        <span className="break-words">{topic}</span>
                       </li>
                     ))}
                   </ul>
@@ -90,14 +90,14 @@ export default function CrossPartyComparison({
 
                 {/* Narratives */}
                 <div>
-                  <h4 className="text-sm font-semibold text-gray-700 mb-3 dark:text-gray-300">
+                  <h4 className="text-xs sm:text-sm font-semibold text-gray-700 mb-2 sm:mb-3 dark:text-gray-300">
                     Key Narratives
                   </h4>
-                  <ul className="space-y-3">
+                  <ul className="space-y-2 sm:space-y-3">
                     {partyData.narratives.map((narrative, index) => (
                       <li
                         key={index}
-                        className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
+                        className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
                       >
                         {narrative}
                       </li>
@@ -107,10 +107,10 @@ export default function CrossPartyComparison({
 
                 {/* Most Viral Tweets */}
                 <div>
-                  <h4 className="text-sm font-semibold text-gray-700 mb-3 dark:text-gray-300">
+                  <h4 className="text-xs sm:text-sm font-semibold text-gray-700 mb-2 sm:mb-3 dark:text-gray-300">
                     Most Viral Tweets
                   </h4>
-                  <div className="space-y-3">
+                  <div className="space-y-2 sm:space-y-3">
                     {partyData.viralTweets.length === 0 ? (
                       <p className="text-xs text-gray-500 dark:text-gray-400">
                         No tweets available
@@ -119,12 +119,12 @@ export default function CrossPartyComparison({
                       partyData.viralTweets.map((tweet, index) => (
                         <div
                           key={tweet.id}
-                          className="border border-gray-200 rounded p-3 bg-gray-50 dark:border-gray-700 dark:bg-gray-900/40"
+                          className="border border-gray-200 rounded p-2 sm:p-3 bg-gray-50 dark:border-gray-700 dark:bg-gray-900/40"
                         >
-                          <p className="text-xs text-gray-700 dark:text-gray-300 mb-2 line-clamp-3">
+                          <p className="text-xs text-gray-700 dark:text-gray-300 mb-1.5 sm:mb-2 line-clamp-3 break-words">
                             {tweet.text}
                           </p>
-                          <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-xs text-gray-500 dark:text-gray-400">
                             <span className="font-medium">
                               {tweet.engagement.toLocaleString()} engagement
                             </span>
