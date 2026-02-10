@@ -1,0 +1,180 @@
+{
+  "drjabareen": {
+    "username": "drjabareen",
+    "display_name": "Yousef Jabareen",
+    "group": "Hadash-Ta'al",
+    "top_topics": [
+      "Jerusalem",
+      "Palestinian rights",
+      "Police violence",
+      "Arab representation",
+      "Cultural activities"
+    ],
+    "narratives": [
+      "The importance of Palestinian representation and participation in political processes, particularly in Jerusalem and the broader context of Palestinian rights.",
+      "Ongoing concerns regarding police violence and discrimination against Arab communities, highlighting incidents of brutality and calls for accountability."
+    ]
+  },
+  "ayodeh": {
+    "username": "ayodeh",
+    "display_name": "Ayman Odeh",
+    "group": "Hadash-Ta'al",
+    "top_topics": [
+      "organized crime",
+      "economic impact",
+      "government response",
+      "Jewish-Arab partnership",
+      "public protests"
+    ],
+    "narratives": [
+      "The ongoing issue of organized crime in Arab society is highlighted, emphasizing its significant economic impact and the urgent need for government intervention.",
+      "There is a call for unity between Jewish and Arab communities in addressing violence and advocating for a safer society, as demonstrated through large public protests."
+    ]
+  },
+  "ahmad_tibi": {
+    "username": "ahmad_tibi",
+    "display_name": "Ahmad Tibi",
+    "group": "Hadash-Ta'al",
+    "top_topics": [
+      "taxation on landowners",
+      "government budget support",
+      "Israeli soldiers and Palestinians",
+      "interactions between settlers and Palestinians",
+      "public protests against violence"
+    ],
+    "narratives": [
+      "Discussions surrounding taxation policies highlight perceived inequalities in the treatment of wealthy landowners.",
+      "There are ongoing public protests addressing issues of violence and crime, with a focus on collaboration between Jewish and Arab communities."
+    ]
+  },
+  "aidatuma": {
+    "username": "aidatuma",
+    "display_name": "Aida Touma-Sliman",
+    "group": "Hadash-Ta'al",
+    "top_topics": [
+      "crime in Arab society",
+      "government accountability",
+      "education and safety",
+      "protests and strikes",
+      "social justice"
+    ],
+    "narratives": [
+      "Concerns about rising crime rates in Arab communities and the perceived lack of government response are prevalent, highlighting a struggle for safety and justice.",
+      "There is a recurring emphasis on the need for social justice and equality, particularly in relation to the treatment of Arab citizens and the impact of government policies."
+    ]
+  },
+  "mnsorabbas": {
+    "username": "mnsorabbas",
+    "display_name": "Mansour Abbas",
+    "group": "Ra'am",
+    "top_topics": [
+      "Jewish-Arab relations",
+      "crime and violence",
+      "peace initiative",
+      "government budget cuts",
+      "hostage situation"
+    ],
+    "narratives": [
+      "Calls for unity and participation in protests against crime and government inaction, emphasizing the importance of Jewish-Arab collaboration.",
+      "Advocacy for a peace initiative aimed at resolving the Israeli-Palestinian conflict, highlighting the need for dialogue and mutual recognition of rights."
+    ]
+  },
+  "ofercass": {
+    "username": "ofercass",
+    "display_name": "Ofer Cassif",
+    "group": "Hadash-Ta'al",
+    "top_topics": [
+      "government violence",
+      "capitalist exploitation",
+      "ethnic cleansing",
+      "Israeli-Palestinian conflict",
+      "racism and discrimination"
+    ],
+    "narratives": [
+      "The tweets frequently address the theme of violence and oppression by the Israeli government, particularly against Palestinian communities and Arab citizens.",
+      "There is a recurring emphasis on the need for resistance against perceived injustices, including calls for solidarity among various groups opposing government policies."
+    ]
+  },
+  "waleedt68": {
+    "username": "waleedt68",
+    "display_name": "Waleed Taha",
+    "group": "Ra'am",
+    "top_topics": [
+      "social protection for women",
+      "unemployed doctors",
+      "political statements",
+      "violence and crime",
+      "settler actions in occupied territories"
+    ],
+    "narratives": [
+      "Concerns regarding the impact of political decisions on various social groups, particularly women and unemployed professionals.",
+      "Criticism of violence and actions by settlers in occupied territories, highlighting the perceived complicity of the government.",
+      "Discussions surrounding the legitimacy and behavior of political leaders and their influence on democratic processes."
+    ]
+  },
+  "leannemohamad": {
+    "username": "leannemohamad",
+    "display_name": "Leanne Mohamad",
+    "group": "Activist",
+    "top_topics": [
+      "Palestine hunger strikers",
+      "Labour government actions",
+      "Children's hospice closure",
+      "Community safety incidents",
+      "Political arrests"
+    ],
+    "narratives": [
+      "Concerns over the treatment and conditions of Palestine hunger strikers and calls for government intervention.",
+      "Criticism of the Labour government's policies and actions regarding Palestine and community welfare.",
+      "Expressions of solidarity with communities affected by violence and the closure of vital services."
+    ]
+  },
+  "howidyhamza": {
+    "username": "howidyhamza",
+    "display_name": "Hamza Howidy",
+    "group": "Activist",
+    "top_topics": [
+      "West Bank annexation",
+      "Hamas governance",
+      "International aid to Gaza",
+      "Israeli settler violence",
+      "Palestinian political developments"
+    ],
+    "narratives": [
+      "The ongoing political dynamics in Gaza involve Hamas's attempts to consolidate power and manage its governance structure amidst external pressures and internal dissent.",
+      "There are significant concerns regarding the impact of Israeli policies on Palestinian communities, particularly in relation to settlement activities and humanitarian conditions."
+    ]
+  },
+  "yousefmunayyer": {
+    "username": "yousefmunayyer",
+    "display_name": "Yousef Munayyer",
+    "group": "Activist",
+    "top_topics": [
+      "Israeli military actions",
+      "Palestinian casualties",
+      "US foreign policy",
+      "AIPAC influence",
+      "Cultural conflicts"
+    ],
+    "narratives": [
+      "Discussion of violence and casualties in the Israeli-Palestinian conflict, particularly focusing on Palestinian experiences and deaths.",
+      "Critique of US support for Israel and the influence of pro-Israel organizations like AIPAC on American politics."
+    ]
+  },
+  "ssinijlawi": {
+    "username": "ssinijlawi",
+    "display_name": "Sawsan Sinijlawi",
+    "group": "Activist",
+    "top_topics": [
+      "post-Abbas era",
+      "Palestinian governance",
+      "Gaza reconstruction",
+      "Israeli-Palestinian dialogue",
+      "Board of Peace"
+    ],
+    "narratives": [
+      "The transition to a post-Abbas era is marked by significant institutional challenges and a legacy of governance issues.",
+      "Efforts towards peace and reconstruction in Gaza emphasize the importance of dignity, governance, and inclusive dialogue between Israelis and Palestinians."
+    ]
+  }
+}

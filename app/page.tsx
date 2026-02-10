@@ -8,10 +8,14 @@ import PartyBarChart from "@/components/PartyBarChart";
 import ThemeToggle from "@/components/ThemeToggle";
 import AccountsTable from "@/components/AccountsTable";
 import ViralTweetsTable from "@/components/ViralTweetsTable";
+import TopicsNarrativesView from "@/components/TopicsNarrativesView";
+import CrossPartyComparison from "@/components/CrossPartyComparison";
 import {
   getAccountSummaries,
   getDashboardData,
   getViralTweets,
+  getTopicsAndNarratives,
+  getPartyComparisonData,
 } from "@/lib/mockData";
 import { PartyFilter } from "@/types/types";
 
@@ -38,6 +42,8 @@ export default function Dashboard() {
   const dashboardData = getDashboardData();
   const allAccounts = getAccountSummaries();
   const allTweets = getViralTweets();
+  const topicsNarratives = getTopicsAndNarratives();
+  const partyComparisonData = getPartyComparisonData();
 
   // Filter data based on selected parties
   const filteredParties = dashboardData.parties.filter((party) =>
@@ -139,9 +145,29 @@ export default function Dashboard() {
             </div>
           )}
 
+          {activeTab === "Topics & Narratives" && (
+            <div className="space-y-6">
+              <TopicsNarrativesView
+                data={topicsNarratives}
+                selectedParties={selectedParties}
+              />
+            </div>
+          )}
+
+          {activeTab === "Cross-Party Comparison" && (
+            <div className="space-y-6">
+              <CrossPartyComparison
+                data={partyComparisonData}
+                selectedParties={selectedParties}
+              />
+            </div>
+          )}
+
           {activeTab !== "Overview" &&
             activeTab !== "Accounts" &&
-            activeTab !== "Viral Tweets" && (
+            activeTab !== "Viral Tweets" &&
+            activeTab !== "Topics & Narratives" &&
+            activeTab !== "Cross-Party Comparison" && (
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-12 text-center dark:bg-gray-800 dark:border-gray-700">
               <p className="text-gray-500 dark:text-gray-300">
                 {activeTab} tab coming soon...

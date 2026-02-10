@@ -60,7 +60,6 @@ ACCOUNTS: List[Dict[str, str]] = [
     {"handle": "MasarwaAmna", "group": "Islamic/Independent", "label": "Amna Masarwa"},
     {"handle": "HassanJabareen", "group": "Islamic/Independent", "label": "Hassan Jabareen"},
     {"handle": "SuhailDiab", "group": "Islamic/Independent", "label": "Suhail Diab"},
-    {"handle": "KamalKhatib1", "group": "Islamic/Independent", "label": "Kamal Khatib"},
 
     # =========================
     # Activists (outside parties)
